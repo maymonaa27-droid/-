@@ -21,185 +21,194 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
   }
   header h1 { font-size: 1.3rem; font-weight: 700; }
-  header p { font-size: 0.8rem; opacity: 0.8; margin-top: 2px; }
   .counter-badge {
     display: inline-block; background: rgba(255,255,255,0.2);
-    border-radius: 20px; padding: 2px 12px; font-size: 0.85rem; margin-top: 6px;
+    border-radius: 20px; padding: 2px 14px; font-size: 0.85rem; margin-top: 6px;
   }
   .entry-section {
     background: white; margin: 16px; border-radius: 16px;
     padding: 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.08);
   }
-  .entry-section label { display: block; font-size: 0.85rem; font-weight: 600; color: #555; margin-bottom: 8px; }
+  .name-label { font-size: 0.9rem; font-weight: 600; color: #555; margin-bottom: 8px; display: block; }
+  .input-row { display: flex; gap: 10px; align-items: stretch; }
   .name-input {
-    width: 100%; padding: 14px 16px; font-size: 1.1rem;
+    flex: 1; padding: 16px; font-size: 1.1rem;
     border: 2px solid #dde3ea; border-radius: 12px; outline: none;
-    text-align: right; font-family: inherit; transition: border-color 0.2s; color: #1a2a3a;
+    text-align: right; font-family: inherit; color: #1a2a3a;
+    transition: border-color 0.2s;
   }
   .name-input:focus { border-color: #2563a8; }
-  .grade-section { margin-top: 18px; }
-  .grade-buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 8px; }
-  .grade-btn {
-    padding: 14px 6px; font-size: 1rem; font-weight: 700;
-    border: 2px solid #dde3ea; border-radius: 12px; background: white;
-    color: #2563a8; cursor: pointer; transition: all 0.15s;
-  }
-  .grade-btn:active { transform: scale(0.95); }
-  .grade-btn.selected {
-    background: #2563a8; color: white; border-color: #2563a8;
-    box-shadow: 0 2px 8px rgba(37,99,168,0.35);
-  }
-  .manual-grade { margin-top: 12px; display: flex; align-items: center; gap: 10px; }
-  .manual-grade input {
-    flex: 1; padding: 12px 14px; font-size: 1rem;
-    border: 2px solid #dde3ea; border-radius: 12px; outline: none;
-    text-align: center; font-family: inherit; transition: border-color 0.2s;
-  }
-  .manual-grade input:focus { border-color: #2563a8; }
-  .manual-grade span { font-size: 0.8rem; color: #888; white-space: nowrap; }
   .add-btn {
-    width: 100%; margin-top: 20px; padding: 16px; font-size: 1.15rem; font-weight: 700;
+    padding: 16px 22px; font-size: 1.4rem; font-weight: 700;
     background: linear-gradient(135deg, #1a4a7a, #2563a8); color: white;
-    border: none; border-radius: 14px; cursor: pointer;
-    transition: opacity 0.2s, transform 0.1s;
+    border: none; border-radius: 12px; cursor: pointer;
     box-shadow: 0 3px 10px rgba(37,99,168,0.3);
+    transition: transform 0.1s, opacity 0.2s;
   }
-  .add-btn:active { transform: scale(0.97); opacity: 0.9; }
+  .add-btn:active { transform: scale(0.93); opacity: 0.85; }
   .toast {
-    position: fixed; bottom: 80px; left: 50%;
+    position: fixed; bottom: 30px; left: 50%;
     transform: translateX(-50%) translateY(20px);
-    background: #27ae60; color: white; padding: 12px 24px;
-    border-radius: 30px; font-size: 0.95rem; font-weight: 600;
-    opacity: 0; transition: all 0.3s; pointer-events: none; z-index: 999; white-space: nowrap;
+    background: #27ae60; color: white; padding: 12px 28px;
+    border-radius: 30px; font-size: 1rem; font-weight: 600;
+    opacity: 0; transition: all 0.3s; pointer-events: none; z-index: 999;
   }
   .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
   .list-section { margin: 0 16px 100px; }
-  .list-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding: 0 4px; }
-  .list-header h2 { font-size: 1rem; font-weight: 700; }
-  .export-btn {
-    padding: 8px 16px; background: #27ae60; color: white;
-    border: none; border-radius: 20px; font-size: 0.85rem; font-weight: 600; cursor: pointer;
+  .list-header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 10px; padding: 0 4px; gap: 8px;
   }
-  .export-btn:active { opacity: 0.8; }
+  .list-header h2 { font-size: 1rem; font-weight: 700; }
+  .btn-row { display: flex; gap: 8px; }
+  .export-btn {
+    padding: 8px 14px; background: #27ae60; color: white;
+    border: none; border-radius: 20px; font-size: 0.8rem; font-weight: 600; cursor: pointer;
+  }
+  .clear-btn {
+    padding: 8px 14px; background: #e74c3c; color: white;
+    border: none; border-radius: 20px; font-size: 0.8rem; font-weight: 600; cursor: pointer;
+  }
+  .export-btn:active, .clear-btn:active { opacity: 0.8; }
   .student-card {
-    background: white; border-radius: 12px; padding: 14px 16px; margin-bottom: 8px;
+    background: white; border-radius: 12px; padding: 16px; margin-bottom: 8px;
     display: flex; justify-content: space-between; align-items: center;
     box-shadow: 0 1px 4px rgba(0,0,0,0.07);
   }
-  .student-info { display: flex; align-items: center; gap: 10px; }
-  .student-num { font-size: 0.75rem; color: #aaa; min-width: 28px; }
-  .student-name { font-size: 1rem; font-weight: 600; }
-  .student-grade { font-size: 1.1rem; font-weight: 800; padding: 6px 14px; border-radius: 20px; min-width: 52px; text-align: center; }
-  .grade-high { background: #e8f5e9; color: #2e7d32; }
-  .grade-mid  { background: #fff8e1; color: #f57f17; }
-  .grade-low  { background: #ffebee; color: #c62828; }
-  .delete-btn { background: none; border: none; color: #ccc; font-size: 1.2rem; cursor: pointer; padding: 4px 8px; margin-right: 4px; }
-  .empty-state { text-align: center; padding: 40px 20px; color: #aaa; font-size: 0.95rem; }
+  .student-name { font-size: 1.05rem; font-weight: 600; }
+  .delete-btn {
+    background: none; border: none; color: #ddd;
+    font-size: 1.2rem; cursor: pointer; padding: 4px 8px;
+  }
+  .empty-state { text-align: center; padding: 40px 20px; color: #aaa; }
   .empty-state .icon { font-size: 3rem; margin-bottom: 10px; }
 </style>
 </head>
 <body>
+
 <header>
   <h1>📋 كشف الدرجات</h1>
-  <p>أدخل اسم الطالب واختر درجته</p>
   <div class="counter-badge" id="counterBadge">0 طالب</div>
 </header>
+
 <div class="entry-section">
-  <label>اسم الطالب</label>
-  <input class="name-input" id="nameInput" type="text" placeholder="اكتب الاسم هنا..." autocomplete="off">
-  <div class="grade-section">
-    <label>الدرجة</label>
-    <div class="grade-buttons" id="gradeButtons"></div>
-    <div class="manual-grade">
-      <span>أو اكتب يدوياً:</span>
-      <input type="number" id="manualGrade" placeholder="0 - 10" min="0" max="10" step="0.5">
-    </div>
+  <span class="name-label">اسم الطالب</span>
+  <div class="input-row">
+    <input class="name-input" id="nameInput" type="text"
+      placeholder="اكتب الاسم هنا..."
+      autocomplete="off"
+      enterkeyhint="done">
+    <button class="add-btn" onclick="addStudent()">✓</button>
   </div>
-  <button class="add-btn" onclick="addStudent()">إضافة ✓</button>
 </div>
+
 <div class="list-section">
   <div class="list-header">
     <h2>القائمة</h2>
-    <button class="export-btn" onclick="exportList()">📄 تصدير</button>
+    <div class="btn-row">
+      <button class="export-btn" onclick="exportList()">📄 تصدير</button>
+      <button class="clear-btn" onclick="clearAll()">🗑 مسح الكل</button>
+    </div>
   </div>
   <div id="studentList">
-    <div class="empty-state"><div class="icon">📝</div><div>لم تُضف أي طالب بعد</div></div>
+    <div class="empty-state">
+      <div class="icon">📝</div>
+      <div>لم تُضف أي طالب بعد</div>
+    </div>
   </div>
 </div>
+
 <div class="toast" id="toast"></div>
+
 <script>
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js');
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js');
+
+// ===== IndexedDB =====
+const DB_NAME = 'gradesDB';
+const DB_VERSION = 1;
+const STORE = 'students';
+let db;
+
+function openDB() {
+  return new Promise((resolve, reject) => {
+    const req = indexedDB.open(DB_NAME, DB_VERSION);
+    req.onupgradeneeded = e => {
+      const d = e.target.result;
+      if (!d.objectStoreNames.contains(STORE)) {
+        d.createObjectStore(STORE, { keyPath: 'id', autoIncrement: true });
+      }
+    };
+    req.onsuccess = e => { db = e.target.result; resolve(db); };
+    req.onerror = () => reject(req.error);
+  });
 }
 
-const grades = [];
-for (let g = 10; g >= 5; g -= 0.5) grades.push(parseFloat(g.toFixed(1)));
-
-let selectedGrade = null;
-let students = JSON.parse(localStorage.getItem('students') || '[]');
-
-const container = document.getElementById('gradeButtons');
-grades.forEach(g => {
-  const btn = document.createElement('button');
-  btn.className = 'grade-btn';
-  btn.textContent = g % 1 === 0 ? g : g.toFixed(1);
-  btn.dataset.grade = g;
-  btn.onclick = () => selectGrade(g, btn);
-  container.appendChild(btn);
-});
-
-function selectGrade(g, btn) {
-  document.querySelectorAll('.grade-btn').forEach(b => b.classList.remove('selected'));
-  btn.classList.add('selected');
-  selectedGrade = g;
-  document.getElementById('manualGrade').value = '';
+function getAllStudents() {
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(STORE, 'readonly');
+    const req = tx.objectStore(STORE).getAll();
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
 }
 
-document.getElementById('manualGrade').addEventListener('input', function() {
-  if (this.value !== '') {
-    document.querySelectorAll('.grade-btn').forEach(b => b.classList.remove('selected'));
-    selectedGrade = parseFloat(this.value);
-  }
+function addStudentDB(name) {
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(STORE, 'readwrite');
+    const req = tx.objectStore(STORE).add({ name });
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
+}
+
+function deleteStudentDB(id) {
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(STORE, 'readwrite');
+    const req = tx.objectStore(STORE).delete(id);
+    req.onsuccess = () => resolve();
+    req.onerror = () => reject(req.error);
+  });
+}
+
+function clearAllDB() {
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(STORE, 'readwrite');
+    const req = tx.objectStore(STORE).clear();
+    req.onsuccess = () => resolve();
+    req.onerror = () => reject(req.error);
+  });
+}
+
+// ===== App =====
+document.getElementById('nameInput').addEventListener('keyup', function(e) {
+  if (e.key === 'Enter' || e.keyCode === 13) addStudent();
 });
 
-document.getElementById('nameInput').addEventListener('keydown', e => {
-  if (e.key === 'Enter') addStudent();
-});
-
-function addStudent() {
+async function addStudent() {
   const name = document.getElementById('nameInput').value.trim();
-  const manualVal = document.getElementById('manualGrade').value;
-  if (manualVal !== '') selectedGrade = parseFloat(manualVal);
   if (!name) { showToast('⚠️ أدخل اسم الطالب', '#e67e22'); return; }
-  if (selectedGrade === null && manualVal === '') { showToast('⚠️ اختر الدرجة', '#e67e22'); return; }
-  students.push({ name, grade: selectedGrade });
-  localStorage.setItem('students', JSON.stringify(students));
+  await addStudentDB(name);
   document.getElementById('nameInput').value = '';
-  document.getElementById('manualGrade').value = '';
-  document.querySelectorAll('.grade-btn').forEach(b => b.classList.remove('selected'));
-  selectedGrade = null;
-  renderList();
+  await renderList();
   showToast('✓ تمت الإضافة');
   document.getElementById('nameInput').focus();
 }
 
-function deleteStudent(i) {
-  students.splice(i, 1);
-  localStorage.setItem('students', JSON.stringify(students));
-  renderList();
+async function deleteStudent(id) {
+  if (!confirm('حذف هذا الطالب؟')) return;
+  await deleteStudentDB(id);
+  await renderList();
 }
 
-function gradeClass(g) {
-  if (g >= 8) return 'grade-high';
-  if (g >= 6) return 'grade-mid';
-  return 'grade-low';
+async function clearAll() {
+  if (!confirm('هل تريد مسح جميع الأسماء؟ لا يمكن التراجع!')) return;
+  await clearAllDB();
+  await renderList();
+  showToast('تم مسح الكل', '#e74c3c');
 }
 
-function gradeLabel(g) {
-  return g % 1 === 0 ? g : parseFloat(g).toFixed(1);
-}
-
-function renderList() {
+async function renderList() {
+  const students = await getAllStudents();
   const list = document.getElementById('studentList');
   document.getElementById('counterBadge').textContent = students.length + ' طالب';
   if (students.length === 0) {
@@ -208,26 +217,40 @@ function renderList() {
   }
   list.innerHTML = students.map((s, i) => `
     <div class="student-card">
-      <button class="delete-btn" onclick="deleteStudent(${i})">✕</button>
-      <div class="student-info">
-        <span class="student-num">${i + 1}</span>
-        <span class="student-name">${s.name}</span>
-      </div>
-      <span class="student-grade ${gradeClass(s.grade)}">${gradeLabel(s.grade)}</span>
+      <button class="delete-btn" onclick="deleteStudent(${s.id})">✕</button>
+      <span class="student-name">${s.name}</span>
     </div>
   `).join('');
 }
 
-function exportList() {
+async function exportList() {
+  const students = await getAllStudents();
   if (students.length === 0) { showToast('القائمة فارغة', '#e67e22'); return; }
-  let text = 'كشف الدرجات\n' + '='.repeat(30) + '\n\n';
-  students.forEach((s, i) => { text += `${i + 1}. ${s.name}  —  ${gradeLabel(s.grade)}\n`; });
-  text += '\n' + '='.repeat(30) + '\nالمجموع: ' + students.length + ' طالب';
-  const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'كشف_الدرجات.txt';
-  a.click();
+  let rows = students.map((s, i) => `
+    <tr>
+      <td style="padding:12px;border-bottom:1px solid #eee;text-align:center;">${i + 1}</td>
+      <td style="padding:12px;border-bottom:1px solid #eee;text-align:right;">${s.name}</td>
+    </tr>`).join('');
+
+  const html = `<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head><meta charset="UTF-8"><title>كشف الأسماء</title></head>
+<body style="font-family:Arial;padding:20px;direction:rtl;background:#f5f5f5;">
+<h2 style="color:#1a4a7a;text-align:center;">كشف الأسماء</h2>
+<table style="width:100%;border-collapse:collapse;background:white;">
+<thead><tr>
+<th style="background:#1a4a7a;color:white;padding:12px;text-align:center;">#</th>
+<th style="background:#1a4a7a;color:white;padding:12px;text-align:right;">الاسم</th>
+</tr></thead>
+<tbody>${rows}</tbody>
+</table>
+<p style="text-align:center;margin-top:14px;color:#555;">المجموع: ${students.length} طالب</p>
+</body></html>`;
+
+  const w = window.open('', '_blank');
+  w.document.open();
+  w.document.write(html);
+  w.document.close();
 }
 
 function showToast(msg, color = '#27ae60') {
@@ -238,7 +261,8 @@ function showToast(msg, color = '#27ae60') {
   setTimeout(() => t.classList.remove('show'), 2000);
 }
 
-renderList();
+// Start
+openDB().then(() => renderList());
 </script>
 </body>
 </html>
